@@ -1,6 +1,6 @@
 {
   "name": "midware-pool",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tiny module implementing a pool of connect-style domain-agnostic middleware layers. Runs in the browser and node.js",
   "main": "lib",
   "author": "Tomas Aparicio",
@@ -12,7 +12,7 @@
   "scripts": {
     "browserify": "./node_modules/.bin/browserify --exports require --standalone midwarePool --entry ./lib/pool.js > ./midware-pool.js",
     "test": "./node_modules/.bin/mocha --ui tdd",
-    "uglify": "./node_modules/.bin/uglifyjs ./midware-pool.js --mangle --source-map midware-pool.min.js.map --source-map-url http://cdn.rawgit.com/h2non/midware-pool/${VERSION}/midware-pool.min.js.map > midware-pool.min.js",
+    "uglify": "./node_modules/.bin/uglifyjs ./midware-pool.js --preamble \"/*! midware-pool v${VERSION} - MIT license - https://github.com/h2non/midware-pool */\" --mangle --source-map midware-pool.min.js.map --source-map-url http://cdn.rawgit.com/h2non/midware-pool/${VERSION}/midware-pool.min.js.map > midware-pool.min.js",
     "browser": "npm run browserify && npm run uglify"
   },
   "repository": {
