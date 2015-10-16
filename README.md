@@ -59,7 +59,7 @@ component install h2non/midware-pool
 
 Or loading the script:
 ```html
-<script src="//cdn.rawgit.com/h2non/midware-pool/0.1.0/midware-pool.js"></script>
+<script src="//cdn.rawgit.com/h2non/midware-pool/0.1.1/midware-pool.js"></script>
 ```
 
 ## Testing
