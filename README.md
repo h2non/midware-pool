@@ -41,21 +41,24 @@ pool.run('foo', message, function(err) {
 
 To install midware-pool in a Node application use npm.
 
-```
+```bash
 npm install midware-pool
 ```
 
 ### Browser
 
-```
+Via bower:
+```bash
 bower install midware-pool
 ```
 
-```
+Via component:
+```bash
 component install h2non/midware-pool
 ```
 
-```
+Or loading the script:
+```html
 <script src="//cdn.rawgit.com/h2non/midware-pool/0.1.0/midware-pool.js"></script>
 ```
 
