@@ -1,5 +1,6 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.midwarePool = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var midware = require('midware')
+var toString = Object.prototype.toString
 
 module.exports = MiddlewarePool
 
@@ -54,6 +55,10 @@ MiddlewarePool.prototype.use = function (name, fn) {
     pool = this.pool[name] = midware(this.ctx)
   }
 
+  if (isArgs(fn)) {
+    fn = toArr(fn)
+  }
+
   if (Array.isArray(fn)) {
     args = fn
   }
@@ -75,16 +80,21 @@ MiddlewarePool.prototype.run = function (name /* ...args, done */) {
 
   function run(err, end) {
     if (err || end) return done(err, end)
-    
+
     var middleware = pool[name]
     if (!middleware) return done()
-    
-    middleware.run.apply(null, args.slice(1).concat(done))
+
+    var cargs = args.slice(1).concat(done)
+    middleware.run.apply(null, cargs)
   }
 }
 
 function toArr(args, index) {
   return [].slice.call(args, index || 0)
+}
+
+function isArgs(o) {
+  return !!o && toString.call(o) === '[object Arguments]'
 }
 
 },{"midware":2}],2:[function(require,module,exports){

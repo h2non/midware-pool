@@ -1,6 +1,6 @@
 {
   "name": "midware-pool",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tiny module implementing a pool of connect-style domain-agnostic middleware layers. Runs in the browser and node.js",
   "license": "MIT",
   "repository": "h2non/midware-pool",
