@@ -2,7 +2,7 @@
   "name": "midware-pool",
   "version": "0.1.0",
   "description": "Tiny module implementing a pool of connect-style domain-agnostic middleware layers. Runs in the browser and node.js",
-  "main": "lib/pool.js",
+  "main": "lib",
   "author": "Tomas Aparicio",
   "license": "MIT",
   "bugs": {

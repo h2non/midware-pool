@@ -2,7 +2,7 @@
 
 **midware-pool** is a **tiny module** to **create a pool** of **connect-style domain-agnostic middleware** layers for any node.js or browser application. It uses [midware](https://github.com/h2non/midware) behind the scenes.
 
-Supports variadic arguments, stack manipulation and middleware inheritance. It's just ~170 SLOC.
+Supports variadic arguments, stack manipulation and middleware inheritance. It's just ~180 SLOC.
 
 To get started, see the example below or the [API usage docs](#usage).
 
@@ -167,18 +167,20 @@ pool.remove('foo', test) // by function reference
 
 ## API
 
-#### pool(*[parent]*)
-#### pool#use(name, ...middleware)
-#### pool.remove(name, middlewareName|function)
-#### pool.run(name, *[args...]*, *[done]*)
-#### pool.runParent(name, *[args...]*, *[done]*)
-#### pool.registered(name) => `boolean`
-#### pool.useParent(pool)
-#### pool.useCtx(ctx)
-#### pool.flush(name)
-#### pool.flushAll()
-#### pool.stack(name) => `midware`
-#### pool.pool = { ...name: midware }
+#### pool(*[parent]*) => Pool
+#### Pool#use(name, ...middleware)
+#### Pool#remove(name, middlewareName|function)
+#### Pool#run(name, *[args...]*, *[done]*)
+#### Pool#runParent(name, *[args...]*, *[done]*)
+#### Pool#registered(name) => `boolean`
+#### Pool#useParent(pool)
+#### Pool#useCtx(ctx)
+#### Pool#flush(name)
+#### Pool#flushAll()
+#### Pool#stack(name) => `midware`
+#### Pool#pool = { ...name: midware }
+#### pool.midware => [midware](https://github.com/h2non/midware)
+#### pool.Pool => Pool
 
 ## License
 
