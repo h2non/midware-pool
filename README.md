@@ -37,7 +37,7 @@ pool.run('foo', message, function(err) {
 
 ## Installation
 
-### Node
+### Node.js
 
 To install midware-pool in a Node application use npm.
 
